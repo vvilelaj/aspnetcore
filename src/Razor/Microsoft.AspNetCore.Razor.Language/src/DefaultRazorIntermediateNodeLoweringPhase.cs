@@ -583,10 +583,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     Source = BuildSourceSpanFromNode(node),
                 });
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.Value?.GetContent() ?? string.Empty,
                     Kind = TokenKind.Html,
+                    Node = node,
                     Source = BuildSourceSpanFromNode(node.Value)
                 });
 
@@ -715,10 +715,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     return;
                 }
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.GetContent(),
                     Kind = TokenKind.CSharp,
+                    Node = node,
                     Source = BuildSourceSpanFromNode(node),
                 });
 
@@ -741,10 +741,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                         _builder.Push(statementNode);
                     }
 
-                    _builder.Add(new IntermediateToken()
+                    _builder.Add(new IntermediateTokenWithNode()
                     {
-                        Content = node.GetContent(),
                         Kind = TokenKind.CSharp,
+                        Node = node,
                         Source = BuildSourceSpanFromNode(node),
                     });
 
@@ -843,10 +843,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                 };
                 _builder.Push(contentNode);
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.GetContent(),
                     Kind = TokenKind.Html,
+                    Node = node,
                     Source = source,
                 });
 
@@ -1090,10 +1090,10 @@ namespace Microsoft.AspNetCore.Razor.Language
 
             private void Combine(HtmlContentIntermediateNode node, SyntaxNode item)
             {
-                node.Children.Add(new IntermediateToken()
+                node.Children.Add(new IntermediateTokenWithNode()
                 {
-                    Content = item.GetContent(),
                     Kind = TokenKind.Html,
+                    Node = item,
                     Source = BuildSourceSpanFromNode(item),
                 });
 
@@ -1327,10 +1327,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     Source = BuildSourceSpanFromNode(node),
                 });
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.Value?.GetContent() ?? string.Empty,
                     Kind = TokenKind.Html,
+                    Node = node.Value,
                     Source = BuildSourceSpanFromNode(node.Value)
                 });
 
@@ -1348,10 +1348,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                         Source = BuildSourceSpanFromNode(node),
                     });
 
-                    _builder.Add(new IntermediateToken()
+                    _builder.Add(new IntermediateTokenWithNode()
                     {
-                        Content = node.GetContent() ?? string.Empty,
                         Kind = TokenKind.Html,
+                        Node = node,
                         Source = BuildSourceSpanFromNode(node),
                     });
 
@@ -1405,10 +1405,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     Source = source,
                     Children =
                     {
-                        new IntermediateToken()
+                        new IntermediateTokenWithNode()
                         {
-                            Content = node.GetContent(),
                             Kind = TokenKind.Html,
+                            Node = node,
                             Source = source,
                         }
                     }
@@ -1574,10 +1574,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     return;
                 }
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.GetContent(),
                     Kind = TokenKind.CSharp,
+                    Node = node,
                     Source = BuildSourceSpanFromNode(node),
                 });
 
@@ -1600,10 +1600,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                         _builder.Push(statementNode);
                     }
 
-                    _builder.Add(new IntermediateToken()
+                    _builder.Add(new IntermediateTokenWithNode()
                     {
-                        Content = node.GetContent(),
                         Kind = TokenKind.CSharp,
+                        Node = node,
                         Source = BuildSourceSpanFromNode(node),
                     });
 
@@ -2041,10 +2041,10 @@ namespace Microsoft.AspNetCore.Razor.Language
 
             private void Combine(HtmlContentIntermediateNode node, SyntaxNode item)
             {
-                node.Children.Add(new IntermediateToken()
+                node.Children.Add(new IntermediateTokenWithNode()
                 {
-                    Content = item.GetContent(),
                     Kind = TokenKind.Html,
+                    Node = item,
                     Source = BuildSourceSpanFromNode(item),
                 });
 
@@ -2179,10 +2179,10 @@ namespace Microsoft.AspNetCore.Razor.Language
                     return;
                 }
 
-                _builder.Add(new IntermediateToken()
+                _builder.Add(new IntermediateTokenWithNode()
                 {
-                    Content = node.GetContent(),
                     Kind = TokenKind.CSharp,
+                    Node = node,
                     Source = BuildSourceSpanFromNode(node),
                 });
             }
